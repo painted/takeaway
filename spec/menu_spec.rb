@@ -15,11 +15,11 @@ describe 'Menu' do
 	end
 
 
-	# it 'can print menu' do
-	# 	menu = "Welcome to Our Cocktail Bar"
-	# 	menu += "Cosmopolitan ... £ 7\n"
-	# 	menu += "Please choose a cocktail\n"
-	# 	expect(menu.print_menu).to eq menu
-	# end 
+	it 'can print menu' do
+		menu.load_menu_items('Maitai','7')
+		expect(menu.to_s).to eq "\nMaitai ... £ 7"
+	end 
+
+	
 
 end

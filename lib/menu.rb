@@ -25,16 +25,20 @@ class Menu
 		@menu_items << {cocktail: cocktail, price: price}
 	end
 
-	def print_menu
-		header
+	def to_s
+		str = ""
 		@menu_items.each do |item|
-			puts "#{item[:cocktail]} ... £ #{item[:price]}".center(100)
+			str += "\n"
+			str+= "#{item[:cocktail]} ... £ #{item[:price]}"
 		end
+		str
 	end
 
 	def header
-	puts "Welcome to Our Cocktail Bar".center(100)
-	puts "---------------------------".center(100)
-end
+		str = "Welcome to Our Cocktail Bar"
+		str += "\n"
+		str += "---------------------------"
+		str
+	end
 
 end
