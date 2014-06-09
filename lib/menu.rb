@@ -7,12 +7,7 @@ class Menu
 	def initialize
 		@menu_items ||= []
 	end
-	# def menu_list
-	# 	@menu_items ||= []
-	# end
-	# def menu_items
-	# 	@menu_items
-	# end
+
 	# def create_csv(filename)
 	# 	CSV.open(filename, 'a')
 	# end
@@ -27,8 +22,19 @@ class Menu
 	end
 
 	def load_menu_items(cocktail, price)
-		# @menu_items ||= []
 		@menu_items << {cocktail: cocktail, price: price}
 	end
+
+	def print_menu
+		header
+		@menu_items.each do |item|
+			puts "#{item[:cocktail]} ... £ #{item[:price]}".center(100)
+		end
+	end
+
+	def header
+	puts "Welcome to Our Cocktail Bar".center(100)
+	puts "---------------------------".center(100)
+end
 
 end

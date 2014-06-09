@@ -11,7 +11,15 @@ describe 'Menu' do
 
 	it 'reads data from the .csv file' do
 		menu.load_menu('menu.csv')
-		expect(@menu_items).to eq 'Cosmopolitan'
+		expect(menu.menu_items).to include({:cocktail=>"Cosmopolitan", :price=>"7"})
 	end
+
+
+	# it 'can print menu' do
+	# 	menu = "Welcome to Our Cocktail Bar"
+	# 	menu += "Cosmopolitan ... £ 7\n"
+	# 	menu += "Please choose a cocktail\n"
+	# 	expect(menu.print_menu).to eq menu
+	# end 
 
 end
