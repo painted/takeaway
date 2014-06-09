@@ -4,12 +4,12 @@ class Menu
 
 	attr_reader :menu_items, :cocktail, :price
 
-	# def initialize
-	# 	@menu_items ||= []
-	# end
-	def menu_list
+	def initialize
 		@menu_items ||= []
 	end
+	# def menu_list
+	# 	@menu_items ||= []
+	# end
 	# def menu_items
 	# 	@menu_items
 	# end
@@ -27,6 +27,7 @@ class Menu
 	end
 
 	def load_menu_items(cocktail, price)
+		# @menu_items ||= []
 		@menu_items << {cocktail: cocktail, price: price}
 	end
 

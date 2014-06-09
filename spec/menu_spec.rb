@@ -10,9 +10,8 @@ describe 'Menu' do
 	# end
 
 	it 'reads data from the .csv file' do
-		menu_list
 		menu.load_menu('menu.csv')
-		expect(@menu_items).to eq nil
+		expect(@menu_items).to eq 'Cosmopolitan'
 	end
 
 end
