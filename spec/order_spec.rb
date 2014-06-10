@@ -11,7 +11,7 @@ describe Order do
     # 2. what are the arguments (if any?)
     result = order.add_items("White Russian")
     # 3. what is the return value (if any?)
-    expect(result).to include "White Russian"
+    expect(result).to include ({"White Russian"=>7})
     # 4. what other state should have changed? (and can I check it)
     #expect(order.list.size).to eq 1
     #expect(order.add_items).
@@ -30,13 +30,37 @@ describe Order do
 
   it 'should include a Black Russian' do
     result = order.add_items("Black Russian")
-    expect(result).to include "Black Russian"
+    expect(result).to include ({"Black Russian"=>7})
   end
 
-  it 'should automatically include the price when adding' do
-    menu.load_menu_items('White Russian','7')
+  it 'should not accept an item not listed in menu' do
+    result = order.add_items("Pizza")
+    expect(result).to eq({})
+  end
+
+    it 'should count the number of valid drinks' do
     order.add_items("White Russian")
-    expect(order.calculate_cost(menu)).to eq "7"
+    order.add_items("Black Russian")
+    order.add_items("Cosmopolitan")
+    order.add_items("Black Baby Jesus")
+    order.add_items("Pizza")
+    order.add_items("Hamburger")
+    expect(order.drink_count).to eq 4
+  end 
+
+  it 'should automatically include the price when adding' do
+    order.add_items("White Russian")
+    expect(order.calculate_cost).to eq 7
+  end
+
+  it 'sum up the total price when adding items' do
+    order.add_items("White Russian")
+    order.add_items("Black Russian")
+    order.add_items("Cosmopolitan")
+    # added afterwards to make sure that if an invalid
+    # item is added it still has the right total
+    order.add_items("Salad")
+    expect(order.calculate_cost).to eq 21
   end
 
 end
