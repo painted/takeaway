@@ -38,5 +38,18 @@ class Order
     str
   end
 
+  def display_header
+    str = "----------Your Order----------"
+    str += "\n"
+    str += "------------------------------"
+    str
+  end
+
+  def display_total
+    total = self.calculate_cost
+    str = ""
+    str += "\n"
+    str += "Order Total ..... £ #{total}"
+  end
 
 end
