@@ -11,7 +11,7 @@ describe Order do
     # 2. what are the arguments (if any?)
     result = order.add_items("White Russian")
     # 3. what is the return value (if any?)
-    expect(result).to include ({"White Russian"=>7})
+    expect(result).to include ({:cocktail=>"White Russian", :price=>7})
     # 4. what other state should have changed? (and can I check it)
     #expect(order.list.size).to eq 1
     #expect(order.add_items).
@@ -30,12 +30,12 @@ describe Order do
 
   it 'should include a Black Russian' do
     result = order.add_items("Black Russian")
-    expect(result).to include ({"Black Russian"=>7})
+    expect(result).to include ({:cocktail=>"Black Russian", :price=>7})
   end
 
   it 'should not accept an item not listed in menu' do
     result = order.add_items("Pizza")
-    expect(result).to eq({})
+    expect(result).to eq []
   end
 
     it 'should count the number of valid drinks' do
