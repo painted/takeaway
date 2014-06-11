@@ -63,4 +63,14 @@ describe Order do
     expect(order.calculate_cost).to eq 21
   end
 
+  it 'can create sms message' do
+  end
+
+  it 'can send_sms' do
+    messages = double :messages, create: nil
+    client = double :client, account: messages
+    expect(Twilio::REST::Client).to receive(:new).and_return client 
+    order.send_sms
+  end
+
 end
