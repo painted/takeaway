@@ -38,7 +38,7 @@ describe Order do
     expect(result).to eq []
   end
 
-    it 'should count the number of valid drinks' do
+  it 'should count the number of valid drinks' do
     order.add_items("White Russian")
     order.add_items("Black Russian")
     order.add_items("Cosmopolitan")
