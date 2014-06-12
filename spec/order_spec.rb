@@ -38,7 +38,7 @@ describe Order do
     expect(result).to eq []
   end
 
-    it 'should count the number of valid drinks' do
+  it 'should count the number of valid drinks' do
     order.add_items("White Russian")
     order.add_items("Black Russian")
     order.add_items("Cosmopolitan")
@@ -61,6 +61,16 @@ describe Order do
     # item is added it still has the right total
     order.add_items("Salad")
     expect(order.calculate_cost).to eq 21
+  end
+
+  it 'can create sms message' do
+  end
+
+  it 'can send_sms' do
+    messages = double :messages, create: nil
+    client = double :client, account: messages
+    expect(Twilio::REST::Client).to receive(:new).and_return client 
+    order.send_sms
   end
 
 end
