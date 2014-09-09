@@ -71,11 +71,13 @@ class Order
   def send_sms
     message = create_sms
    # test credentials 
-    account_sid = 'AC4a3c76c6e67101b36fffdfa4b39f8abd' 
-    auth_token = '5359b597fcac47d939480e5cf7ddd9d4' 
+    account_sid = 'ACfc1c64a30f7b2680d49054674a7f486f' 
+    auth_token = '31a42a094560a70c0399b25e842331a8' 
+   
   # set up a client to talk to the Twilio REST API 
-    @client = Twilio::REST::Client.new account_sid, auth_token 
-    @client.account.messages.create({
+  @client = Twilio::REST::Client.new account_sid, auth_token 
+   
+  @client.account.messages.create({
     :from => '+441262722027', 
     :to => '+447753192332', 
     :body => "#{message}"
