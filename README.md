@@ -15,5 +15,6 @@ ruby takeaway.rb
 ```
 You will see a list of cocktails like this:
 ![Takeaway](https://www.paintedchef.com/takeaway.png)
-Simply follow the commands in the terminal making sure to spell the cocktails correctly.
+Simply follow the commands in the terminal making sure to spell the cocktails correctly.<br>
+I will get a text after you order.  
 [Makers Academy]:http://www.makersacademy.com 
